@@ -52,7 +52,7 @@ void Game::promptNextPlayer() const {
         }{
             cout << "Invalid input. Player " << currentPlayer + 1 << ", press Y to continue: ";
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
         }
     }
     clearScreen();
@@ -87,13 +87,13 @@ void Game::placeSingleShip(int size) {
         if (cin.fail() || (rowChar < 'A' || rowChar > 'J')) {
             cout << "Invalid row, you need to choose letter between A-J, please try again" << endl;
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             continue;
         }
         if (cin.fail() || col < 1 || col > 10) {
             cout << "Invalid column. You need to pick from 1-10, please try again." << endl;
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             continue;
         }
         int row = rowChar - 'A';
@@ -106,7 +106,7 @@ void Game::placeSingleShip(int size) {
         if (cin.fail() || (orientation != 'H' && orientation != 'V')) {
             cout << "Invalid orientation. You need to choose from H/V, please try again." << endl;
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             continue;
         }
 
@@ -181,14 +181,14 @@ void Game::gameLoop() {
             if (cin.fail() || (rowChar < 'A' || rowChar > 'J')) {
                 cout << "Invalid row, you need to choose letter between A-J, please try again ";
                 cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.ignore();
                 cin >> col;
                 continue;
             }
             if (cin.fail() || col < 1 || col > 10) {
                 cout << "Invalid column. You need to pick from 1-10, please try again." << endl;
                 cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.ignore();
                 break;
             }
         }
