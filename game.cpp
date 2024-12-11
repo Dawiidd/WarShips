@@ -177,19 +177,22 @@ void Game::gameLoop() {
         while (true) {
             cin >> rowChar >> col;
             rowChar = toupper(rowChar);
+            
+            if (!cin.fail() && rowChar >= 'A' && rowChar  =< 'J'
+                && col >= 1 && col <= 10) {
+                break;
+            }
 
             if (cin.fail() || (rowChar < 'A' || rowChar > 'J')) {
                 cout << "Invalid row, you need to choose letter between A-J, please try again ";
                 cin.clear();
                 cin.ignore();
-                cin >> col;
                 continue;
             }
             if (cin.fail() || col < 1 || col > 10) {
                 cout << "Invalid column. You need to pick from 1-10, please try again." << endl;
                 cin.clear();
                 cin.ignore();
-                break;
             }
         }
         int row = rowChar - 'A';
